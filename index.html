@@ -284,8 +284,29 @@
     html,body{ background:#fff; }
     .sheet{ box-shadow:none; margin:0; max-width:none; }
     * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .print-btn{ display:none !important; }
   }
   @page{ size:A4; margin:0; }
+
+  .print-btn{
+    position:fixed; top:16px; right:16px; z-index:999;
+    display:flex;
+    align-items:center; gap:8px;
+    padding:12px 20px;
+    background:var(--ink);
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    font-size:13px; font-weight:700;
+    border:none; border-radius:999px;
+    box-shadow:0 10px 30px rgba(0,0,0,.28);
+    cursor:pointer;
+  }
+  .print-btn:hover{ background:#33394a; }
+  .print-btn:active{ transform:scale(.97); }
+
+  @media (max-width:760px){
+    .print-btn{ top:auto; bottom:18px; right:18px; left:18px; justify-content:center; padding:14px 20px; font-size:14px; }
+  }
 
   @media (max-width:760px){
     .sheet{ grid-template-columns:1fr; }
@@ -511,6 +532,10 @@
   </main>
 
 </div>
+
+<button type="button" class="print-btn" onclick="window.print()">
+  🖨️ Télécharger en PDF
+</button>
 
 </body>
 </html>
